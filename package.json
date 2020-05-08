@@ -1,0 +1,22 @@
+{
+  "name": "web-app",
+  "version": "1.0.0",
+  "description": "Visualisation web-app.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noelnamai/web-app.git"
+  },
+  "author": "Noel Namai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/noelnamai/web-app/issues"
+  },
+  "homepage": "https://github.com/noelnamai/web-app#readme",
+  "devDependencies": {
+    "lite-server": "^2.5.4"
+  }
+}

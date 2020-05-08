@@ -1,0 +1,4 @@
+#ignore these files
+node_modules
+data/matrix-data.tsv
+data/preprocess-data.ipynb

@@ -2,6 +2,7 @@ body {
     font-family: "Roboto Mono", sans-serif !important;
 }
 
-.fa-kiwi-bird {
+.fa-kiwi-bird, 
+.fa-cloud-upload-alt {
     color: #4c8bf5 ;
 }

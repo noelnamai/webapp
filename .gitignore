@@ -1,4 +1,4 @@
 #ignore these files
-static/node_modules
 data/matrix-data.tsv
 data/preprocess-data.ipynb
+node_modules

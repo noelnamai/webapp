@@ -20,12 +20,5 @@
   "homepage": "https://github.com/noelnamai/web-app#readme",
   "devDependencies": {
     "lite-server": "^2.5.4"
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.13.0",
-    "@popperjs/core": "^2.4.0",
-    "bootstrap": "^4.4.1",
-    "jquery": "^3.5.1",
-    "mdbootstrap": "^4.17.0"
   }
 }

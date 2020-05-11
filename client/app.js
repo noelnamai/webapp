@@ -18,6 +18,7 @@ $(document).ready(function () {
     });
 
     $("#current_gene").html(gene_name);
+
 });
 
 
@@ -30,6 +31,7 @@ $("#gene_text_search").keydown(function (e) {
 }).keyup(function (e) {
 
     if (e.which == 13) {
+        
         var gene_name = $("#gene_text_search").val();
 
         if (gene_name) {
@@ -38,6 +40,7 @@ $("#gene_text_search").keydown(function (e) {
             gene_name = $("#gene_text_search").attr("placeholder")
         }
     }
+
 });
 
 
@@ -50,4 +53,5 @@ $("#gene_button_search").on("click", function (e) {
     } else {
         gene_name = $("#gene_text_search").attr("placeholder")
     }
+
 });

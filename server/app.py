@@ -50,9 +50,10 @@ by_many_schema = FpkmTableSchema(many=True)
 
 @app.route("/all/genes/", methods=["GET"])
 def return_all_genes():
-    selected = FpkmTable.query.with_entities(FpkmTable.hgnc_symbol)
+    selected = FpkmTable.query.with_entities(
+        FpkmTable.hgnc_symbol, FpkmTable.full_name)
     selected = selected.distinct()
-    selected = selected.limit(100)
+    selected = selected.limit(1000)
     result = by_many_schema.dump(selected)
 
     return jsonify(result)
@@ -70,7 +71,7 @@ def select_by_gene(gene=None):
 def select_by_sample(sample=None):
     selected = FpkmTable.query.filter_by(sample=sample)
     selected = selected.distinct()
-    selected = selected.limit(100)
+    selected = selected.limit(1000)
     result = by_many_schema.dump(selected)
 
     return jsonify(result)

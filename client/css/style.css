@@ -1,8 +1,22 @@
-body {
-    font-family: "Roboto Mono", sans-serif !important;
+
+.navbar{
+    min-height: 100px;
 }
 
 .fa-kiwi-bird, 
 .fa-cloud-upload-alt {
     color: #4c8bf5 ;
 }
+
+th {
+    text-transform: uppercase;
+}
+
+tr {
+    line-height: 2px;
+}
+
+.table, td th {
+    font-size: 6px;
+}
+

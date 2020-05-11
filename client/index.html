@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
     <!-- Material Design Bootstrap -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/css/mdb.min.css">
+    <!-- jQuery DataTables library -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/v/bs4/dt-1.10.21/b-1.6.2/b-colvis-1.6.2/b-flash-1.6.2/b-html5-1.6.2/r-2.2.4/datatables.min.css" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -22,19 +25,85 @@
 
     <div class="container" style="min-height: 100v">
 
-        <nav class="navbar navbar-light">
+        <!-- navbar -->
+        <nav class="navbar z-depth-1 navbar-light">
             <a href="index.html">
                 <i class="fas fa-kiwi-bird fa-4x"></i>
             </a>
-            <form class="form-inline" id="search_by_gene">
-                <input type="text" class="form-control text-uppercase" placeholder="tp53" id="gene_text_search">
-                <button type="button" class="btn btn-primary btn-md text-capitalize"
-                    id="gene_button_search">Search</button>
-            </form>
         </nav>
 
-        <!-- Heading -->
-        <h2 id="current_gene" class="display-4 pt-3 mb-2 text-uppercase"></h2>
+        <div class="d-flex align-items-start flex-column">
+            <!-- heading -->
+            <div>
+                <h2 id="current-gene" class="display-6 pt-3 mb-2 text-uppercase"></h2>
+            </div>
+
+            <!-- by gene table -->
+            <div class="table-responsive">
+                <table class="table table-sm table-striped table-bordered" id="by-gene-table" width="100%">
+                    <thead>
+                        <tr>
+                            <th>sample</th>
+                            <th>ensembl</th>
+                            <th>entrez</th>
+                            <th>symbol</th>
+                            <th>full-name</th>
+                            <th>fpkm</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <!-- search by gene card -->
+            <div class="card z-depth-1 light-version py-2 px-5">
+                <form class="form-inline" id="search-by-gene">
+                    <div class="md-form form-lg">
+                        <input type="text" id="gene-text-search" class="form-control form-control-lg text-uppercase">
+                        <label for="gene-text-search">HGNC Gene Symbol</label>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-md text-capitalize"
+                        id="gene-button-search">Search</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- divider -->
+        <hr class="hr-dark wow fadeInLeft">
+
+        <div class="d-flex align-items-start flex-column">
+            <!-- heading -->
+            <div>
+                <h2 id="current-sample" class="display-6 pt-3 mb-2 text-uppercase"></h2>
+            </div>
+
+            <!-- by sample table -->
+            <div class="table-responsive">
+                <table class="table table-sm table-striped table-bordered" id="by-sample-table" width="100%">
+                    <thead>
+                        <tr>
+                            <th>sample</th>
+                            <th>ensembl</th>
+                            <th>entrez</th>
+                            <th>symbol</th>
+                            <th>full-name</th>
+                            <th>fpkm</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <!-- search by sample card -->
+            <div class="card z-depth-1 light-version py-2 px-5">
+                <form class="form-inline" id="search-by-sample">
+                    <div class="md-form form-lg">
+                        <input type="text" id="sample-text-search" class="form-control form-control-lg text-uppercase">
+                        <label for="sample-text-search">Sample Name</label>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-md text-capitalize"
+                        id="sample-button-search">Search</button>
+                </form>
+            </div>
+        </div>
 
         <!-- Divider -->
         <hr class="hr-dark wow fadeInLeft">
@@ -55,6 +124,9 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js"></script>
     <!-- D3.js library -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.1/d3.min.js"></script>
+    <!-- jQuery DataTables library -->
+    <script type="text/javascript"
+        src="https://cdn.datatables.net/v/bs4/dt-1.10.21/b-1.6.2/b-colvis-1.6.2/b-flash-1.6.2/b-html5-1.6.2/r-2.2.4/datatables.min.js"></script>
     <!-- Custom scripts -->
     <script src="app.js"></script>
 

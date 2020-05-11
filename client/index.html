@@ -26,17 +26,24 @@
             <a href="index.html">
                 <i class="fas fa-kiwi-bird fa-4x"></i>
             </a>
-            <form class="form-inline">
-                <input type="text" class="form-control text-uppercase" placeholder="tp53" id="search">
-                <button type="search" class="btn btn-primary btn-md text-capitalize">Search</button>
+            <form class="form-inline" id="search_by_gene">
+                <input type="text" class="form-control text-uppercase" placeholder="tp53" id="gene_text_search">
+                <button type="button" class="btn btn-primary btn-md text-capitalize"
+                    id="gene_button_search">Search</button>
             </form>
         </nav>
+
+        <!-- Heading -->
+        <h2 id="current_gene" class="display-4 pt-5 mb-2 text-uppercase"></h2>
+
+        <!-- Divider -->
+        <hr class="hr-dark wow fadeInLeft">
 
     </div>
 
     <!-- scripts -->
     <!-- JQuery -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Bootstrap tooltips -->
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
@@ -46,6 +53,10 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js"></script>
+    <!-- D3.js library -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.1/d3.min.js"></script>
+    <!-- Custom scripts -->
+    <script src="app.js"></script>
 
 </body>
 

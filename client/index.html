@@ -35,6 +35,39 @@
             </a>
         </nav>
 
+        <!-- number of samples -->
+        <div class="d-flex py-4">
+            <div class="col-md-4 px-0">
+                <div class="card text-center">
+                    <div class="card-block">
+                        <h1 class="card-text good-review-score" id="number-of-samples">0</h1>
+                        <h4 class="card-title text-capitalize">samples</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 px-1">
+                <div class="card text-center">
+                    <div class="card-block">
+                        <h1 class="card-text good-review-score">99.99%</h1>
+                        <h4 class="card-title text-capitalize">fancy stats</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 px-0">
+                <div class="card text-center">
+                    <div class="card-block">
+                        <h1 class="card-text good-review-score">0.0001</h1>
+                        <h4 class="card-title text-capitalize">fancy p-value</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- divider -->
+        <hr class="hr-dark wow fadeInLeft">
+
         <div class="d-flex align-items-start flex-column">
             <!-- heading -->
             <div>
@@ -42,7 +75,7 @@
             </div>
 
             <!-- by gene table -->
-            <div class="table-responsive py-3">
+            <div class="table-responsive py-4">
                 <table class="table table-sm table-striped table-bordered" id="by-gene-table" width="100%">
                     <thead>
                         <tr>
@@ -61,7 +94,8 @@
             <div class="card z-depth-1 px-2">
                 <form class="form-inline">
                     <div class="md-form">
-                        <input type="text" id="gene-text-search" class="form-control form-control-md text-uppercase">
+                        <input type="text" id="gene-text-search" class="form-control form-control-md text-uppercase"
+                            cols="23">
                         <label for="gene-text-search">Gene Symbol</label>
                     </div>
                     <button type="button" class="btn btn-primary btn-md text-capitalize"
@@ -80,7 +114,7 @@
             </div>
 
             <!-- by sample table -->
-            <div class="table-responsive py-3">
+            <div class="table-responsive py-4">
                 <table class="table table-sm table-striped table-bordered" id="by-sample-table" width="100%">
                     <thead>
                         <tr>
@@ -99,7 +133,8 @@
             <div class="card z-depth-1 px-2">
                 <form class="form-inline">
                     <div class="md-form">
-                        <input type="text" id="sample-text-search" class="form-control form-control-md text-uppercase">
+                        <input type="text" id="sample-text-search" class="form-control form-control-md text-uppercase"
+                            cols="23">
                         <label for="sample-text-search">Sample Name</label>
                     </div>
                     <button type="button" class="btn btn-primary btn-md text-capitalize"
@@ -121,8 +156,8 @@
             <div class="card z-depth-1 px-2">
                 <form class="form-inline">
                     <div class="md-form">
-                        <textarea type="text" id="enter-multiple-genes"
-                            class="md-textarea form-control text-uppercase" cols="23"></textarea>
+                        <textarea type="text" id="enter-multiple-genes" class="md-textarea form-control text-uppercase"
+                            cols="23"></textarea>
                         <label for="enter-multiple-genes">Enter Multiple Genes</label>
                     </div>
                     <button type="button" class="btn btn-primary btn-md text-capitalize"

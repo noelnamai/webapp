@@ -9,9 +9,10 @@ $(document).ready(function () {
     $("#current-gene").html(gene_name);
     $("#current-sample").html(sample_name);
 
+    query_all_samples();
+
     generate_by_gene_table(gene_name);
     generate_by_sample_table(sample_name);
-
 });
 
 /*****************************************************************/
@@ -37,7 +38,6 @@ $("#gene-text-search").keydown(function (e) {
 
         generate_by_gene_table(gene_name);
     }
-
 });
 
 
@@ -53,7 +53,6 @@ $("#gene-button-search").on("click", function (e) {
     }
 
     generate_by_gene_table(gene_name);
-
 });
 
 /*****************************************************************/
@@ -79,7 +78,6 @@ $("#sample-text-search").keydown(function (e) {
 
         generate_by_sample_table(sample_name);
     }
-
 });
 
 
@@ -95,24 +93,28 @@ $("#sample-button-search").on("click", function (e) {
     }
 
     generate_by_sample_table(sample_name);
-
 });
 
 /*****************************************************************/
 
-function generate_histogram() {
+function query_all_samples() {
 
-    var margin = { top: 10, right: 30, bottom: 30, left: 40 },
-        width = 460 - margin.left - margin.right,
-        height = 400 - margin.top - margin.bottom;
+    var resp_data = new Array();
 
-    var svg = d3.select("#data-histogram")
-        .append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")");
+    $.ajax({
+        url: "http://127.0.0.1:5000/all/samples/",
+        type: "GET",
+        dataType: "json",
+        success: function (response) {
+            $("#number-of-samples").html(response.length);
+        },
+        error: function () {
+            console.log("not found");
+        }
+
+    });
+
+    return resp_data;
 }
 
 /*****************************************************************/
@@ -120,7 +122,7 @@ function generate_histogram() {
 function generate_by_gene_table(gene_name) {
 
     $.ajax({
-        url: "http://127.0.0.1:5000/search/gene/" + gene_name,
+        url: "http://127.0.0.1:5000/search/genes/" + gene_name,
         type: "GET",
         dataType: "json",
         success: function (response) {
@@ -150,11 +152,9 @@ function generate_by_gene_table(gene_name) {
             $(".dataTables_length").addClass("bs-select");
         },
         error: function () {
-            console.log(gene_name + " not found.");
+            console.log(gene_name + " not found");
         }
-
     });
-
 }
 
 /*****************************************************************/
@@ -162,7 +162,7 @@ function generate_by_gene_table(gene_name) {
 function generate_by_sample_table(sample_name) {
 
     $.ajax({
-        url: "http://127.0.0.1:5000/search/sample/" + sample_name,
+        url: "http://127.0.0.1:5000/search/samples/" + sample_name,
         type: "GET",
         dataType: "json",
         success: function (response) {
@@ -192,11 +192,26 @@ function generate_by_sample_table(sample_name) {
             $(".dataTables_length").addClass("bs-select");
         },
         error: function () {
-            console.log(sample_name + " not found.");
+            console.log(sample_name + " not found");
         }
-
     });
+}
 
+/*****************************************************************/
+
+function generate_histogram() {
+
+    var margin = { top: 10, right: 30, bottom: 30, left: 40 },
+        width = 460 - margin.left - margin.right,
+        height = 400 - margin.top - margin.bottom;
+
+    var svg = d3.select("#data-histogram")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")");
 }
 
 /*****************************************************************/

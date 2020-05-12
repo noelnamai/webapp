@@ -5,6 +5,11 @@
 
 .fa-kiwi-bird, 
 .fa-cloud-upload-alt {
+    color: #4c8bf5;
+}
+
+.card-title,
+.card-text {
     color: #4c8bf5 ;
 }
 

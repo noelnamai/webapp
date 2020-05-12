@@ -7,16 +7,19 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
     <!-- Material Design Bootstrap -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/css/mdb.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/css/mdb.min.css">
     <!-- jQuery DataTables library -->
     <link rel="stylesheet" type="text/css"
-        href="https://cdn.datatables.net/v/bs4/dt-1.10.21/b-1.6.2/b-colvis-1.6.2/b-flash-1.6.2/b-html5-1.6.2/r-2.2.4/datatables.min.css" />
+        href="https://cdn.datatables.net/v/bs4/dt-1.10.21/b-1.6.2/b-colvis-1.6.2/b-flash-1.6.2/b-html5-1.6.2/r-2.2.4/datatables.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -32,6 +35,9 @@
             </a>
         </nav>
 
+        <!-- divider -->
+        <hr class="hr-dark wow fadeInLeft">
+
         <div class="d-flex align-items-start flex-column">
             <!-- heading -->
             <div>
@@ -39,7 +45,7 @@
             </div>
 
             <!-- by gene table -->
-            <div class="table-responsive">
+            <div class="table-responsive py-3">
                 <table class="table table-sm table-striped table-bordered" id="by-gene-table" width="100%">
                     <thead>
                         <tr>
@@ -55,11 +61,11 @@
             </div>
 
             <!-- search by gene card -->
-            <div class="card z-depth-1 light-version py-2 px-5">
+            <div class="card z-depth-0 px-2">
                 <form class="form-inline" id="search-by-gene">
-                    <div class="md-form form-lg">
-                        <input type="text" id="gene-text-search" class="form-control form-control-lg text-uppercase">
-                        <label for="gene-text-search">HGNC Gene Symbol</label>
+                    <div class="md-form form-md">
+                        <input type="text" id="gene-text-search" class="form-control form-control-md text-uppercase">
+                        <label for="gene-text-search">Gene Symbol</label>
                     </div>
                     <button type="button" class="btn btn-primary btn-md text-capitalize"
                         id="gene-button-search">Search</button>
@@ -77,7 +83,7 @@
             </div>
 
             <!-- by sample table -->
-            <div class="table-responsive">
+            <div class="table-responsive py-3">
                 <table class="table table-sm table-striped table-bordered" id="by-sample-table" width="100%">
                     <thead>
                         <tr>
@@ -93,9 +99,9 @@
             </div>
 
             <!-- search by sample card -->
-            <div class="card z-depth-1 light-version py-2 px-5">
+            <div class="card z-depth-0 px-2">
                 <form class="form-inline" id="search-by-sample">
-                    <div class="md-form form-lg">
+                    <div class="md-form form-md">
                         <input type="text" id="sample-text-search" class="form-control form-control-lg text-uppercase">
                         <label for="sample-text-search">Sample Name</label>
                     </div>

@@ -2,7 +2,6 @@
 var gene_name = "TP53";
 var sample_name = "CPT0000640005"; //CPT0000660006
 
-
 /*****************************************************************/
 
 $(document).ready(function () {
@@ -12,10 +11,8 @@ $(document).ready(function () {
 
     generate_by_gene_table(gene_name);
     generate_by_sample_table(sample_name);
-
+    
 });
-
-
 
 /*****************************************************************/
 
@@ -39,7 +36,6 @@ $("#gene-text-search").keydown(function (e) {
         }
 
         generate_by_gene_table(gene_name);
-
     }
 
 });
@@ -59,7 +55,6 @@ $("#gene-button-search").on("click", function (e) {
     generate_by_gene_table(gene_name);
 
 });
-
 
 /*****************************************************************/
 
@@ -82,7 +77,7 @@ $("#sample-text-search").keydown(function (e) {
             $("#current-sample").html(sample_name);
         }
 
-        generate_by_sample_table(sample_name);
+        generate_by_sample_table(sample_name);        
     }
 
 });
@@ -103,7 +98,6 @@ $("#sample-button-search").on("click", function (e) {
 
 });
 
-
 /*****************************************************************/
 
 function generate_by_gene_table(gene_name) {
@@ -120,7 +114,7 @@ function generate_by_gene_table(gene_name) {
             };
 
             $("#by-gene-table").DataTable({
-                pageLength: 20,
+                pageLength: 15,
                 pagingType: "simple",
                 data: response,
                 columns: [
@@ -130,6 +124,9 @@ function generate_by_gene_table(gene_name) {
                     { data: "hgnc_symbol" },
                     { data: "full_name" },
                     { data: "fpkm" }
+                ],
+                buttons: [
+                    "csv", "excel"
                 ]
             });
 
@@ -142,7 +139,6 @@ function generate_by_gene_table(gene_name) {
     });
 
 }
-
 
 /*****************************************************************/
 
@@ -160,7 +156,7 @@ function generate_by_sample_table(sample_name) {
             };
 
             $("#by-sample-table").DataTable({
-                pageLength: 20,
+                pageLength: 15,
                 pagingType: "simple",
                 data: response,
                 columns: [
@@ -170,6 +166,9 @@ function generate_by_sample_table(sample_name) {
                     { data: "hgnc_symbol" },
                     { data: "full_name" },
                     { data: "fpkm" }
+                ],
+                buttons: [
+                    "csv", "excel"
                 ]
             });
 
@@ -178,6 +177,7 @@ function generate_by_sample_table(sample_name) {
         error: function () {
             console.log(sample_name + " not found.");
         }
+
     });
 
 }

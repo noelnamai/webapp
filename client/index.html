@@ -35,9 +35,6 @@
             </a>
         </nav>
 
-        <!-- divider -->
-        <hr class="hr-dark wow fadeInLeft">
-
         <div class="d-flex align-items-start flex-column">
             <!-- heading -->
             <div>
@@ -61,9 +58,9 @@
             </div>
 
             <!-- search by gene card -->
-            <div class="card z-depth-0 px-2">
-                <form class="form-inline" id="search-by-gene">
-                    <div class="md-form form-md">
+            <div class="card z-depth-1 px-2">
+                <form class="form-inline">
+                    <div class="md-form">
                         <input type="text" id="gene-text-search" class="form-control form-control-md text-uppercase">
                         <label for="gene-text-search">Gene Symbol</label>
                     </div>
@@ -99,10 +96,10 @@
             </div>
 
             <!-- search by sample card -->
-            <div class="card z-depth-0 px-2">
-                <form class="form-inline" id="search-by-sample">
-                    <div class="md-form form-md">
-                        <input type="text" id="sample-text-search" class="form-control form-control-lg text-uppercase">
+            <div class="card z-depth-1 px-2">
+                <form class="form-inline">
+                    <div class="md-form">
+                        <input type="text" id="sample-text-search" class="form-control form-control-md text-uppercase">
                         <label for="sample-text-search">Sample Name</label>
                     </div>
                     <button type="button" class="btn btn-primary btn-md text-capitalize"
@@ -112,6 +109,30 @@
         </div>
 
         <!-- Divider -->
+        <hr class="hr-dark wow fadeInLeft">
+
+        <!-- data histogram -->
+        <div class="d-flex align-items-start flex-column">
+            <!-- heading -->
+            <div>
+                <h2 id="multiple-genes-plot" class="display-6 pt-3 mb-2 text-uppercase">Fancy Plot</h2>
+            </div>
+            <!-- Material text area -->
+            <div class="card z-depth-1 px-2">
+                <form class="form-inline">
+                    <div class="md-form">
+                        <textarea type="text" id="enter-multiple-genes"
+                            class="md-textarea form-control text-uppercase" cols="23"></textarea>
+                        <label for="enter-multiple-genes">Enter Multiple Genes</label>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-md text-capitalize"
+                        id="plot-multiple-genes">Plot</button>
+                </form>
+            </div>
+            <div class="col-lg-6" id="data-histogram"></div>
+        </div>
+
+        <!-- divider -->
         <hr class="hr-dark wow fadeInLeft">
 
     </div>

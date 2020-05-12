@@ -8,15 +8,13 @@
     color: #4c8bf5 ;
 }
 
+hr {
+    border: none;
+    height: 1px;
+    color: #4c8bf5;
+    background-color: #4c8bf5;
+}
+
 th {
     text-transform: uppercase;
 }
-
-tr {
-    line-height: 2px;
-}
-
-.table, td th {
-    font-size: 6px;
-}
-

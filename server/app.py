@@ -51,8 +51,8 @@ by_many_schema = FpkmTableSchema(many=True)
 @app.route("/all/genes/", methods=["GET"])
 @app.route("/all/genes/<sample>", methods=["GET"])
 def return_all_genes(sample=None):
-    selected = FpkmTable.query.with_entities(
-        FpkmTable.hgnc_symbol, FpkmTable.fpkm)
+    selected = FpkmTable.query.with_entities(FpkmTable.sample,
+                                             FpkmTable.hgnc_symbol, FpkmTable.fpkm)
     if sample:
         selected = selected.filter_by(sample=sample)
     else:

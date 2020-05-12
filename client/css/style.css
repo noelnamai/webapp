@@ -1,6 +1,6 @@
 
-.navbar{
-    min-height: 100px;
+.nav-link {
+    color: #4c8bf5 !important;
 }
 
 .fa-kiwi-bird, 
@@ -13,13 +13,18 @@
     color: #4c8bf5 ;
 }
 
+h2 {
+    color: #4c8bf5;
+}
+
 hr {
     border: none;
     height: 1px;
-    color: #4c8bf5;
     background-color: #4c8bf5;
 }
 
 th {
     text-transform: uppercase;
+    background-color: #4c8bf5;
+    color: white;
 }

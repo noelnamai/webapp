@@ -131,9 +131,6 @@ function generate_by_gene_table(gene_name) {
                     { data: "hgnc_symbol" },
                     { data: "full_name" },
                     { data: "fpkm" }
-                ],
-                buttons: [
-                    "csv", "excel"
                 ]
             });
 

@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -21,6 +22,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.20/css/jquery.dataTables.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
@@ -52,7 +54,7 @@
         <!-- number of samples -->
         <div class="d-flex py-3">
             <div class="col-lg-3 px-1">
-                <div class="card text-center h-100 py-3">
+                <div class="card text-center rounded-0 h-100 py-3">
                     <div class="card-block">
                         <h1 class="card-text good-review-score" id="number-of-samples">0</h1>
                         <h4 class="card-title text-capitalize">samples</h4>
@@ -60,8 +62,9 @@
                 </div>
             </div>
 
+            <!-- number of genes -->
             <div class="col-lg-3 px-1">
-                <div class="card text-center h-100 py-3">
+                <div class="card text-center rounded-0 h-100 py-3">
                     <div class="card-block">
                         <h1 class="card-text good-review-score" id="number-of-genes">0</h1>
                         <h4 class="card-title text-capitalize">genes</h4>
@@ -69,8 +72,9 @@
                 </div>
             </div>
 
+            <!-- fancy stats -->
             <div class="col-lg-3 px-1">
-                <div class="card text-center h-100 py-3">
+                <div class="card text-center rounded-0 h-100 py-3">
                     <div class="card-block">
                         <h1 class="card-text good-review-score">99.99%</h1>
                         <h4 class="card-title text-capitalize">fancy stats</h4>
@@ -78,8 +82,9 @@
                 </div>
             </div>
 
+            <!-- fancy p-value -->
             <div class="col-lg-3 px-1">
-                <div class="card text-center h-100 py-3">
+                <div class="card text-center rounded-0 h-100 py-3">
                     <div class="card-block">
                         <h1 class="card-text good-review-score">0.0001</h1>
                         <h4 class="card-title text-capitalize">fancy p-value</h4>
@@ -115,7 +120,7 @@
             </div>
 
             <!-- search by gene card -->
-            <div class="card z-depth-1 px-2">
+            <div class="card rounded-0 z-depth-1 px-2">
                 <form class="form-inline">
                     <div class="md-form">
                         <input type="text" id="gene-text-search" class="form-control form-control-md text-uppercase"
@@ -155,7 +160,7 @@
             </div>
 
             <!-- search by sample card -->
-            <div class="card z-depth-1 px-2">
+            <div class="card rounded-0 z-depth-1 px-2">
                 <form class="form-inline">
                     <div class="md-form">
                         <input type="text" id="sample-text-search" class="form-control form-control-md text-uppercase"
@@ -178,7 +183,7 @@
                 <h2 id="multiple-genes-plot" class="display-6 mb-2 text-uppercase">Fancy Plot</h2>
             </div>
             <!-- Material text area -->
-            <div class="card z-depth-1 px-2">
+            <div class="card rounded-0 z-depth-1 px-2">
                 <form class="form-inline">
                     <div class="md-form">
                         <textarea type="text" id="enter-multiple-genes" class="md-textarea form-control text-uppercase"

@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, jsonify, request
+from flask import Flask, abort, jsonify, request
 from flask_cors import CORS
 from flask_marshmallow import Marshmallow
 from flask_sqlalchemy import SQLAlchemy
@@ -49,19 +49,12 @@ by_many_schema = FpkmTableSchema(many=True)
 
 
 @app.route("/all/genes/", methods=["GET"])
-@app.route("/all/genes/<sample>", methods=["GET"])
 def return_all_genes(sample=None):
-    selected = FpkmTable.query.with_entities(
-        FpkmTable.sample, FpkmTable.hgnc_symbol, FpkmTable.fpkm)
-    if sample:
-        selected = selected.filter_by(sample=sample)
-    else:
-        pass
-
+    selected = FpkmTable.query.with_entities(FpkmTable.hgnc_symbol)
     selected = selected.distinct()
     result = by_many_schema.dump(selected)
 
-    return jsonify(result)
+    return jsonify(result) if result else abort(404)
 
 
 @app.route("/all/samples/", methods=["GET"])
@@ -70,7 +63,7 @@ def return_all_samples():
     selected = selected.distinct()
     result = by_many_schema.dump(selected)
 
-    return jsonify(result)
+    return jsonify(result) if result else abort(404)
 
 
 @app.route("/search/genes/<gene>", methods=["GET"])
@@ -78,7 +71,7 @@ def select_by_gene(gene=None):
     selected = FpkmTable.query.filter_by(hgnc_symbol=gene)
     result = by_many_schema.dump(selected)
 
-    return jsonify(result)
+    return jsonify(result) if result else abort(404)
 
 
 @app.route("/search/samples/<sample>", methods=["GET"])
@@ -89,7 +82,7 @@ def select_by_sample(sample=None):
     selected = selected.distinct()
     result = by_many_schema.dump(selected)
 
-    return jsonify(result)
+    return jsonify(result) if result else abort(404)
 
 
 # run server

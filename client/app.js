@@ -1,18 +1,14 @@
 
-var gene_name = "TP53";
-var sample_name = "CPT0000640005"; //CPT0000660006
+var gene_name   = "";
+var sample_name = "";
 
 /*****************************************************************/
 
 $(document).ready(function () {
 
-    $("#current-gene").html(gene_name);
-    $("#current-sample").html(sample_name);
-
+    query_all_genes();
     query_all_samples();
-
-    generate_by_gene_table(gene_name);
-    generate_by_sample_table(sample_name);
+    
 });
 
 /*****************************************************************/
@@ -26,33 +22,18 @@ $("#gene-text-search").keydown(function (e) {
 }).keyup(function (e) {
 
     if (e.which == 13) {
-
         gene_name = $("#gene-text-search").val();
-
-        if (gene_name) {
-            $("#current-gene").html(gene_name);
-        } else {
-            gene_name = "TP53";
-            $("#current-gene").html(gene_name);
-        }
-
         generate_by_gene_table(gene_name);
-    }
+    };
+
 });
 
 
 $("#gene-button-search").on("click", function (e) {
 
     gene_name = $("#gene-text-search").val();
-
-    if (gene_name) {
-        $("#current-gene").html(gene_name);
-    } else {
-        gene_name = "TP53";
-        $("#current-gene").html(gene_name);
-    }
-
     generate_by_gene_table(gene_name);
+
 });
 
 /*****************************************************************/
@@ -66,56 +47,63 @@ $("#sample-text-search").keydown(function (e) {
 }).keyup(function (e) {
 
     if (e.which == 13) {
-
         sample_name = $("#sample-text-search").val();
-
-        if (sample_name) {
-            $("#current-sample").html(sample_name);
-        } else {
-            sample_name = "CPT0000640005";
-            $("#current-sample").html(sample_name);
-        }
-
         generate_by_sample_table(sample_name);
     }
+
 });
 
 
 $("#sample-button-search").on("click", function (e) {
 
     sample_name = $("#sample-text-search").val();
-
-    if (sample_name) {
-        $("#current-sample").html(sample_name);
-    } else {
-        sample_name = "CPT0000640005";
-        $("#current-sample").html(sample_name);
-    }
-
     generate_by_sample_table(sample_name);
+
 });
 
 /*****************************************************************/
 
-function query_all_samples() {
+function query_all_genes() {
 
-    var resp_data = new Array();
+    $.ajax({
+        url: "http://127.0.0.1:5000/all/genes/",
+        type: "GET",
+        dataType: "json",
+        success: function (response) {
+
+            $("#number-of-genes").html(response.length.toLocaleString());            
+            gene_name = response[0]["hgnc_symbol"];
+            generate_by_gene_table(gene_name);
+
+        },
+        error: function () {
+            $("#number-of-genes").html("0");
+        }
+    });
+
+};
+
+/*****************************************************************/
+
+function query_all_samples() {
 
     $.ajax({
         url: "http://127.0.0.1:5000/all/samples/",
         type: "GET",
         dataType: "json",
         success: function (response) {
-            $("#number-of-samples").html(response.length);
+
+            $("#number-of-samples").html(response.length.toLocaleString());            
+            sample_name = response[0]["sample"];
+            generate_by_sample_table(sample_name);
+
         },
         error: function () {
-            console.log("not found");
+            $("#number-of-samples").html("0");
         }
-
     });
 
-    return resp_data;
-}
+};
 
 /*****************************************************************/
 
@@ -149,12 +137,17 @@ function generate_by_gene_table(gene_name) {
                 ]
             });
 
+            $("#by-gene-table").show();
+            $("#current-gene").html(gene_name);
             $(".dataTables_length").addClass("bs-select");
+
         },
         error: function () {
-            console.log(gene_name + " not found");
+            $("#current-gene").html(gene_name + " not found");
         }
     });
+
+    $("#gene-text-search").val("");
 }
 
 /*****************************************************************/
@@ -173,7 +166,7 @@ function generate_by_sample_table(sample_name) {
             };
 
             $("#by-sample-table").DataTable({
-                pageLength: 15,
+                pageLength: 10,
                 pagingType: "simple",
                 data: response,
                 columns: [
@@ -189,12 +182,17 @@ function generate_by_sample_table(sample_name) {
                 ]
             });
 
+            $("#by-sample-table").show();
+            $("#current-sample").html(sample_name);
             $(".dataTables_length").addClass("bs-select");
+
         },
         error: function () {
-            console.log(sample_name + " not found");
+            $("#current-sample").html(sample_name + " not found");
         }
     });
+
+    $("#sample-text-search").val("");
 }
 
 /*****************************************************************/

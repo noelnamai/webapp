@@ -5,13 +5,16 @@ from flask_cors import CORS
 from flask_marshmallow import Marshmallow
 from flask_sqlalchemy import SQLAlchemy
 
+
 # init app
 app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 basedir = os.path.abspath(os.path.dirname(__file__))
 
+
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://root:password@localhost:3306/webapp"
+
 
 # init sqlalchemy first
 db = SQLAlchemy(app)
@@ -78,7 +81,7 @@ def select_by_gene(gene=None):
 def select_by_sample(sample=None):
     selected = FpkmTable.query.filter_by(sample=sample)
     selected = selected.distinct()
-    selected = selected.limit(100)
+    # selected = selected.limit(100)
     selected = selected.distinct()
     result = by_many_schema.dump(selected)
 

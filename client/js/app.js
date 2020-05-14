@@ -121,8 +121,8 @@ function generate_by_gene_table(gene_name) {
             };
 
             $("#by-gene-table").DataTable({
-                pageLength: 15,
-                pagingType: "simple",
+                pageLength: 10,
+                pagingType: "first_last_numbers",
                 data: response,
                 columns: [
                     { data: "sample" },
@@ -164,7 +164,7 @@ function generate_by_sample_table(sample_name) {
 
             $("#by-sample-table").DataTable({
                 pageLength: 10,
-                pagingType: "simple",
+                pagingType: "first_last_numbers",
                 data: response,
                 columns: [
                     { data: "sample" },
@@ -173,9 +173,6 @@ function generate_by_sample_table(sample_name) {
                     { data: "hgnc_symbol" },
                     { data: "full_name" },
                     { data: "fpkm" }
-                ],
-                buttons: [
-                    "csv", "excel"
                 ]
             });
 

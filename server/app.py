@@ -4,16 +4,20 @@ from flask import Flask, abort, jsonify, request
 from flask_cors import CORS
 from flask_marshmallow import Marshmallow
 from flask_sqlalchemy import SQLAlchemy
+from werkzeug.utils import secure_filename
 
 
 # init app
 app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
-basedir = os.path.abspath(os.path.dirname(__file__))
 
+ALLOWED_EXTENSIONS = {"txt", "csv", "tsv"}
 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
 app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://root:password@localhost:3306/webapp"
+
+app.config['UPLOAD_FOLDER'] = "C:\\Users\\noel.namai\\personal\\webapp\\uploads"
 
 
 # init sqlalchemy first

@@ -1,14 +1,15 @@
 
-var gene_name   = "";
+var gene_name = "";
 var sample_name = "";
 
 /*****************************************************************/
 
 $(document).ready(function () {
 
-    query_all_genes();
-    query_all_samples();
-    
+    $(".dropdown-toggle").dropdown();
+    get_all_genes();
+    get_all_samples();
+
 });
 
 /*****************************************************************/
@@ -23,16 +24,16 @@ $("#gene-text-search").keydown(function (e) {
 
     if (e.which == 13) {
         gene_name = $("#gene-text-search").val();
-        generate_by_gene_table(gene_name);
+        generate_gene_table(gene_name);
     };
-
+    
 });
 
 
 $("#gene-button-search").on("click", function (e) {
 
     gene_name = $("#gene-text-search").val();
-    generate_by_gene_table(gene_name);
+    generate_gene_table(gene_name);
 
 });
 
@@ -48,7 +49,7 @@ $("#sample-text-search").keydown(function (e) {
 
     if (e.which == 13) {
         sample_name = $("#sample-text-search").val();
-        generate_by_sample_table(sample_name);
+        generate_sample_table(sample_name);
     }
 
 });
@@ -57,23 +58,23 @@ $("#sample-text-search").keydown(function (e) {
 $("#sample-button-search").on("click", function (e) {
 
     sample_name = $("#sample-text-search").val();
-    generate_by_sample_table(sample_name);
+    generate_sample_table(sample_name);
 
 });
 
 /*****************************************************************/
 
-function query_all_genes() {
+function get_all_genes() {
 
     $.ajax({
-        url: "http://127.0.0.1:5000/all/genes/",
         type: "GET",
+        url: "http://127.0.0.1:5000/all/genes/",
         dataType: "json",
         success: function (response) {
 
-            $("#number-of-genes").html(response.length.toLocaleString());            
+            $("#number-of-genes").html(response.length.toLocaleString());
             gene_name = response[0]["hgnc_symbol"];
-            generate_by_gene_table(gene_name);
+            generate_gene_table(gene_name);
 
         },
         error: function () {
@@ -85,17 +86,17 @@ function query_all_genes() {
 
 /*****************************************************************/
 
-function query_all_samples() {
+function get_all_samples() {
 
     $.ajax({
-        url: "http://127.0.0.1:5000/all/samples/",
         type: "GET",
+        url: "http://127.0.0.1:5000/all/samples/",
         dataType: "json",
         success: function (response) {
 
-            $("#number-of-samples").html(response.length.toLocaleString());            
+            $("#number-of-samples").html(response.length.toLocaleString());
             sample_name = response[0]["sample"];
-            generate_by_sample_table(sample_name);
+            generate_sample_table(sample_name);
 
         },
         error: function () {
@@ -107,11 +108,11 @@ function query_all_samples() {
 
 /*****************************************************************/
 
-function generate_by_gene_table(gene_name) {
+function generate_gene_table(gene_name) {
 
     $.ajax({
-        url: "http://127.0.0.1:5000/search/genes/" + gene_name,
         type: "GET",
+        url: "http://127.0.0.1:5000/search/genes/" + gene_name,
         dataType: "json",
         success: function (response) {
 
@@ -149,11 +150,11 @@ function generate_by_gene_table(gene_name) {
 
 /*****************************************************************/
 
-function generate_by_sample_table(sample_name) {
+function generate_sample_table(sample_name) {
 
     $.ajax({
-        url: "http://127.0.0.1:5000/search/samples/" + sample_name,
         type: "GET",
+        url: "http://127.0.0.1:5000/search/samples/" + sample_name,
         dataType: "json",
         success: function (response) {
 

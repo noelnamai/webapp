@@ -12,11 +12,12 @@
     color: #ffffff;
 }
 
-.card-title,
+.card-title, 
 .card-text {
-    color: #4c8bf5 ;
+    color: #4c8bf5;
 }
 
+h1, 
 h2 {
     color: #4c8bf5;
 }
@@ -34,7 +35,7 @@ th {
     color: white;
 }
 
-#by-gene-table,
+#by-gene-table, 
 #by-sample-table {
     display: none;
 }

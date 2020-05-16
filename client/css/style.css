@@ -39,3 +39,7 @@ th {
 #by-sample-table {
     display: none;
 }
+
+#stats-deck {
+    height: 100px;
+}

@@ -85,7 +85,7 @@ def select_by_gene(gene=None):
 def select_by_sample(sample=None):
     selected = FpkmTable.query.filter_by(sample=sample)
     selected = selected.distinct()
-    # selected = selected.limit(100)
+    selected = selected.limit(100)
     selected = selected.distinct()
     result = by_many_schema.dump(selected)
 
